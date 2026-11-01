@@ -15,7 +15,7 @@
 ## 📌 Executive Summary
 In higher education, **over 70% of prospective students and parents drop off** if they are not contacted within the first 15 minutes of expressing interest online. Traditional human tele-calling teams suffer from a **24–48 hour response backlog**, bandwidth limits during peak admission rush, and zero immediate coverage during late evenings or weekends.
 
-**ByteBenders** solves this problem by building an **Autonomous AI Admissions Telephony Agent** that integrates directly with CGC University's official web portal. When a student fills the admission form, our system dispatches a **real cellular phone call (GSM)** to the student's mobile phone in **less than 2 seconds**. The AI counselor, **Ritu**, addresses the student by their name, asks for their preferred language (Hindi/English), and accurately answers queries regarding tuition fees, scholarships (CGC JOSH), placements, and hostel facilities.
+**ByteBenders** solves this problem by building an **Autonomous AI Admissions Telephony Agent** that integrates directly with CGC University's official web portal. When a student fills the admission form, our system dispatches a **real cellular phone call (GSM)** to the student's mobile phone in **less than 2 seconds**. The AI counselor, **CGC SAHAYAK**, addresses the student by their name, asks for their preferred language (Hindi/English), and accurately answers queries regarding tuition fees, scholarships (CGC JOSH), placements, and hostel facilities.
 
 ---
 
@@ -138,7 +138,7 @@ Open **`http://localhost:5173/`** in your browser.
    * Web UI shows an official confirmation: *"Our admissions team will connect shortly, please stay connected."*
 4. **Step 4:** Within **< 2 seconds**, your mobile phone rings!
 5. **Step 5:** Answer the call:
-   * AI Counselor **Ritu** greets you by name: *"Hello, am I speaking with [Name]?"*
+   * AI Counselor **CGC SAHAYAK** greets you by name: *"Hello, am I speaking with [Name]?"*
    * Asks for language preference: *"Would you prefer to speak in Hindi or English?"*
    * Accurately answers questions about fees, the landmark ₹1 Cr placement package, and CGC JOSH scholarships!
 
