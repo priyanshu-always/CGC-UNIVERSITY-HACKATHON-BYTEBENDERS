@@ -100,8 +100,8 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
   return (
     <div className="bg-white text-[#2e2e2e] font-sans antialiased selection:bg-[#9e0203] selection:text-white">
       
-      {/* 1. TOP UTILITY STRIP (Matches official cgcuniversity.in) */}
-      <div className="bg-[#1b263b] text-white text-[11px] py-1 px-4 sm:px-8 border-b border-slate-700">
+      {/* 1. TOP UTILITY STRIP (Hidden on mobile < 768px, visible on md+ matching official responsive standards) */}
+      <div className="hidden md:block bg-[#1b263b] text-white text-[11px] py-1 px-4 sm:px-8 border-b border-slate-700">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
           
           {/* Left links */}
@@ -161,22 +161,22 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
         </div>
       </div>
 
-      {/* 2. MAIN LOGO & NAVIGATION BAR (Matches official cgcuniversity.in) */}
+      {/* 2. MAIN LOGO & NAVIGATION BAR (Fully responsive across all phones, tablets & desktops) */}
       <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm transition-all">
-        <div className="w-full px-4 sm:px-8 lg:px-12 py-3 flex items-center justify-between">
+        <div className="w-full px-3 sm:px-6 lg:px-12 py-2 sm:py-3 flex items-center justify-between">
           
           {/* Official CGC Mohali Logo */}
-          <div className="flex items-center shrink-0 mr-6 lg:mr-10">
+          <div className="flex items-center shrink-0">
             <a href="/" className="flex items-center">
               <img
                 src="/images/cgcu-logo.webp"
                 alt="CGC University Mohali Logo"
-                className="w-48 sm:w-56 h-auto object-contain"
+                className="w-32 xs:w-40 sm:w-48 lg:w-56 h-auto object-contain"
               />
             </a>
           </div>
 
-          {/* Navigation Links with generous spacing & hover underlines */}
+          {/* Navigation Links with generous spacing & hover underlines (desktop) */}
           <nav className="hidden xl:flex items-center gap-7 lg:gap-8 text-[13px] font-bold text-[#2e2e2e] uppercase tracking-wider mx-auto">
             {["About", "Academics", "Programs", "Admission", "Campus Life", "Placements", "Industry Collaborations"].map((menu) => (
               <a
@@ -191,7 +191,7 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
           </nav>
 
           {/* Right Header Section: Search + CGC UET Logo + Admission Helpline */}
-          <div className="flex items-center gap-4 sm:gap-5 lg:gap-6 shrink-0 ml-4">
+          <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 shrink-0 ml-2 sm:ml-4">
             
             {/* Search Button */}
             <button
@@ -199,33 +199,34 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
               title="Search"
               className="text-slate-600 hover:text-[#9e0203] transition p-1 cursor-pointer"
             >
-              <Search className="w-5 h-5 stroke-[2.2]" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
             </button>
 
-            <div className="h-8 w-px bg-slate-300"></div>
+            <div className="h-6 sm:h-8 w-px bg-slate-300 hidden sm:block"></div>
 
-            {/* CGC UET Logo (With brightness(0) filter so it displays crisp black on white) */}
-            <div className="flex items-center">
+            {/* CGC UET Logo (Hidden on extra-small mobile to prevent cutting off helpline, visible sm+) */}
+            <div className="hidden sm:flex items-center">
               <img
                 src="/images/cgcuet.png"
                 alt="CGC UET Logo"
-                className="h-9 sm:h-10 w-auto object-contain"
+                className="h-7 sm:h-10 w-auto object-contain"
                 style={{ filter: "brightness(0)" }}
               />
             </div>
 
             {/* Admission Helpline Section */}
-            <div className="flex flex-col items-center justify-center">
-              <p className="text-[11px] font-semibold text-slate-700 tracking-tight mb-0.5 leading-none whitespace-nowrap">
+            <div className="flex flex-col items-end sm:items-center justify-center">
+              <p className="hidden sm:block text-[10px] sm:text-[11px] font-semibold text-slate-700 tracking-tight mb-0.5 leading-none whitespace-nowrap">
                 Admission Helpline
               </p>
-              <button
-                onClick={() => onLaunchCall()}
+              <a
+                href="tel:18005005005"
                 title="Call Helpline 18005005005"
-                className="bg-[#9e0203] hover:bg-[#800203] text-white font-extrabold text-[15px] tracking-wide px-5 py-1.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 leading-tight whitespace-nowrap cursor-pointer"
+                className="bg-[#9e0203] hover:bg-[#800203] text-white font-extrabold text-[12px] sm:text-[14px] lg:text-[15px] tracking-wide px-3 sm:px-5 py-1 sm:py-1.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 leading-tight whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
               >
-                18005005005
-              </button>
+                <Phone className="w-3 h-3 sm:hidden" />
+                <span>18005005005</span>
+              </a>
             </div>
 
           </div>
@@ -243,13 +244,13 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
             </p>
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a1a2e] tracking-tight leading-tight max-w-3xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#1a1a2e] tracking-tight leading-tight max-w-3xl">
                 A Legacy of <span className="text-[#9e0203]">Unwavering Commitment</span> in Securing Top–Tier Placements
               </h1>
 
               <button
                 onClick={() => handleOpenApplyModal()}
-                className="shrink-0 inline-flex items-center gap-2 bg-[#9e0203] hover:bg-[#800203] text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-md shadow-lg hover:shadow-xl transition-all"
+                className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 bg-[#9e0203] hover:bg-[#800203] text-white font-bold text-xs uppercase tracking-wider px-6 py-3 sm:py-3.5 rounded-md shadow-lg hover:shadow-xl transition-all cursor-pointer"
               >
                 <span>VIEW PLACEMENTS</span>
                 <ArrowRight className="w-4 h-4" />
@@ -587,30 +588,30 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
         </div>
       </footer>
 
-      {/* 9. FIXED RED "APPLY NOW" VERTICAL TAB ON RIGHT (Exact as cgcuniversity.in) */}
+      {/* 9. FIXED RED "APPLY NOW" VERTICAL TAB ON RIGHT (Responsive across mobile & desktop) */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40">
         <button
           onClick={() => handleOpenApplyModal()}
           title="Apply Now"
-          className="bg-[#9e0203] hover:bg-[#800203] text-white font-extrabold text-[11px] tracking-widest px-3 py-6 rounded-l-md shadow-2xl transition-all [writing-mode:vertical-rl] rotate-180 flex items-center gap-2 cursor-pointer hover:pl-4"
+          className="bg-[#9e0203] hover:bg-[#800203] text-white font-extrabold text-[9px] sm:text-[11px] tracking-widest px-2 sm:px-3 py-3.5 sm:py-6 rounded-l-md shadow-2xl transition-all [writing-mode:vertical-rl] rotate-180 flex items-center gap-1.5 cursor-pointer hover:pl-3 sm:hover:pl-4"
         >
           <span>APPLY NOW</span>
         </button>
       </div>
 
-      {/* 10. FLOATING BLUE NOTIFICATION BELL ON BOTTOM-LEFT (Official CGC Notification Component) */}
-      <div className="fixed left-5 bottom-8 z-40">
+      {/* 10. FLOATING BLUE NOTIFICATION BELL ON BOTTOM-LEFT (Responsive) */}
+      <div className="fixed left-3 sm:left-5 bottom-4 sm:bottom-8 z-40">
         <button
           onClick={() => setNotificationOpen(!notificationOpen)}
-          className="relative w-10 h-10 rounded-full bg-[#0c91c4] hover:bg-[#0aa2db] text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110"
+          className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0c91c4] hover:bg-[#0aa2db] text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110"
         >
-          <Bell className="w-5 h-5" />
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white animate-ping"></span>
+          <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 bg-red-500 rounded-full border-2 border-white animate-ping"></span>
         </button>
 
         {/* Notification card popup */}
         {notificationOpen && (
-          <div className="absolute left-0 bottom-14 w-72 bg-white rounded-xl shadow-2xl border border-slate-200 p-4 text-xs animate-in fade-in">
+          <div className="absolute left-0 bottom-12 sm:bottom-14 w-68 sm:w-72 bg-white rounded-xl shadow-2xl border border-slate-200 p-3.5 sm:p-4 text-xs animate-in fade-in">
             <div className="flex justify-between items-start mb-2">
               <span className="font-bold text-[#9e0203] uppercase tracking-wide text-[10px]">
                 Admissions Notification
@@ -622,7 +623,7 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>
-            <p className="text-slate-700 font-semibold mb-2 leading-relaxed">
+            <p className="text-slate-700 font-semibold mb-2 leading-relaxed text-[11px] sm:text-xs">
               Admissions for session 2026-27 are now open. Speak to our admissions desk or apply online.
             </p>
             <button
@@ -630,7 +631,7 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
                 setNotificationOpen(false);
                 handleOpenApplyModal();
               }}
-              className="w-full py-2 bg-[#9e0203] text-white font-bold rounded-lg text-center shadow-sm"
+              className="w-full py-2 bg-[#9e0203] text-white font-bold rounded-lg text-center shadow-sm text-xs cursor-pointer"
             >
               Apply Online
             </button>
@@ -638,31 +639,31 @@ export default function CgcOfficialLanding({ onLaunchCall }) {
         )}
       </div>
 
-      {/* 11. EXACT OFFICIAL CGC ADMISSION FORM MODAL (Opens on 'APPLY NOW') */}
+      {/* 11. EXACT OFFICIAL CGC ADMISSION FORM MODAL (Mobile-scrollable with max-h-[94vh]) */}
       {isApplyModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm transition-all animate-in fade-in">
-          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/60 backdrop-blur-sm transition-all animate-in fade-in overflow-y-auto">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 my-auto max-h-[94vh] flex flex-col">
             
             {/* Modal Header */}
-            <div className="bg-[#9e0203] text-white px-6 py-4 flex items-center justify-between">
+            <div className="bg-[#9e0203] text-white px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between shrink-0">
               <div>
-                <h3 className="text-base sm:text-lg font-black tracking-wide uppercase">
+                <h3 className="text-sm sm:text-base md:text-lg font-black tracking-wide uppercase">
                   ADMISSIONS OPEN 2026-27
                 </h3>
-                <p className="text-[11px] text-white/80 font-medium">
+                <p className="text-[10px] sm:text-[11px] text-white/80 font-medium">
                   CGC University, Mohali (Chandigarh Group of Colleges)
                 </p>
               </div>
               <button
                 onClick={() => setIsApplyModalOpen(false)}
-                className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 transition"
+                className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 transition cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Form Body */}
-            <div className="p-6">
+            {/* Form Body with auto-scroll */}
+            <div className="p-4 sm:p-6 overflow-y-auto">
               {formSubmitted ? (
                 <div className="text-center py-6 space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-sm">
