@@ -13,17 +13,17 @@
 ---
 
 ## 📌 Executive Summary
-In higher education, **over 70% of prospective students and parents drop off** if they are not contacted within the first 15 minutes of expressing interest online. Traditional human tele-calling teams suffer from a **24–48 hour response backlog**, bandwidth limits during peak admission rush, and zero immediate coverage during late evenings or weekends.
+In higher education, **over 70% of prospective students and parents drop off** if they are not contacted within the first 15 minutes of expressing interest online. Traditional human tele-calling teams[...]
 
-**ByteBenders** solves this problem by building an **Autonomous AI Admissions Telephony Agent** that integrates directly with CGC University's official web portal. When a student fills the admission form, our system dispatches a **real cellular phone call (GSM)** to the student's mobile phone in **less than 2 seconds**. The AI counselor, **CGC SAHAYAK**, addresses the student by their name, asks for their preferred language (Hindi/English), and accurately answers queries regarding tuition fees, scholarships (CGC JOSH), placements, and hostel facilities.
+**ByteBenders** solves this problem by building an **Autonomous AI Admissions Telephony Agent** that integrates directly with CGC University's official web portal. When a student fills the admission form, the AI assistant instantly calls them—without requiring a human operator—through a networked telephony stack designed to maximize response speed, trust, and conversion.
 
 ---
 
 ## 🚀 Key Features
 
 * **⚡ Sub-Second Outbound Cellular Calling (< 2s):** Directly rings the applicant's physical SIM card via OmniDimension's telecom gateway as soon as they submit the web form.
-* **🏛️ 100% Authentic Official Portal:** Pixel-perfect replica of the official CGC University Mohali portal (`cgcuniversity.in`) with official color tokens (`#9e0203`), verified placement figures, marks of excellence, and the official `ADMISSIONS OPEN 2026-27` form modal.
-* **🗣️ Multilingual & Calm Voice AI:** Driven by Sarvam AI's Indian neural voice synthesis (`Ritu`), offering smooth, respectful conversational speech in English, Hindi, and Punjabi.
+* **🏛️ 100% Authentic Official Portal:** Pixel-perfect replica of the official CGC University Mohali portal (`cgcuniversity.in`) with official color tokens (`#9e0203`), verified placement figures, fee slabs, and a realistic admissions flow that feels native to the university website.
+* **🗣️ Multilingual & Calm Voice AI:** Driven by Sarvam AI's Indian neural voice synthesis (`CGC SAHAYAK`), offering smooth, respectful conversational speech in English, Hindi, and Punjabi.
 * **🎯 Hyper-Personalized Context:** Greets the caller by their first name (e.g., *"Hello Shivam!"*), confirms their selected course (e.g., *B.Tech CSE*), and maintains a calm, supportive cadence.
 * **🗄️ Real-Time Cloud CRM (Supabase):** Every applicant lead, contact details, timestamp, and course preference are captured into a Supabase PostgreSQL database in under 50ms.
 * **📚 Verified Domain Knowledge:** Grounded in CGC Jhanjeri facts:
@@ -43,7 +43,7 @@ graph TD
     C -->|Store Lead < 50ms| D[(Supabase Cloud PostgreSQL)]
     C -->|POST /api/v1/calls/dispatch| E[OmniDimension Telephony Gateway]
     E -->|Cellular Network / GSM| F[Student's Mobile Phone Rings < 2s]
-    F -->|Voice Conversation| G[AI Counselor 'Ritu']
+    F -->|Voice Conversation| G[AI Counselor 'CGC SAHAYAK']
     G --> H[Sarvam AI Neural TTS + Soniox STT + GPT-4.1 Mini]
     G --> I[CGC Jhanjeri Knowledge Base]
 ```
@@ -59,7 +59,7 @@ graph TD
 | **Database / CRM** | Supabase (Cloud PostgreSQL) | Real-time lead ingestion (`admissions_leads` table) |
 | **Telephony Gateway** | OmniDimension (`omnidim.io`) | Sub-second outbound cellular phone dialing |
 | **Speech-to-Text (STT)**| Soniox | Ultra-low latency voice recognition |
-| **Text-to-Speech (TTS)**| Sarvam AI (Ritu Model) | Realistic Indian neural voice synthesis |
+| **Text-to-Speech (TTS)**| Sarvam AI (CGC SAHAYAK Model) | Realistic Indian neural voice synthesis |
 | **LLM Reasoning** | GPT-4.1 Mini | Contextual dialogue & knowledge retrieval |
 | **Hosting & Edge Proxy**| Vercel | Production edge hosting with CORS-free API rewrites |
 
