@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/omnidim/:path*",
+      "destination": "https://omnidim.io/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

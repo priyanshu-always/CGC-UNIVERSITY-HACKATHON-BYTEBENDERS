@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CGC University – AI Admissions Telephony Agent (Presentation)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .slide-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 60px;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    .slide.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tag {
+      font-size: 13px;
+      font-weight: 800;
+      color: #9e0203;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: inline-block;
+      background: rgba(158, 2, 3, 0.15);
+      padding: 4px 14px;
+      border-radius: 9999px;
+      border: 1px solid rgba(158, 2, 3, 0.4);
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    h2 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+    p.subtitle {
+      font-size: 20px;
+      color: #94a3b8;
+      max-width: 800px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      border-color: #9e0203;
+      transform: translateY(-4px);
+    }
+    .card-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #9e0203;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .card-check {
+      background: #10b981;
+    }
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+    .card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .stat-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: #9e0203;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .pipeline-step {
+      background: #1e293b;
+      border-left: 4px solid #0ea5e9;
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pipeline-step h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 4px;
+    }
+    .pipeline-step p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: #0b1120;
+      border-top: 1px solid #1e293b;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .btn {
+      background: #9e0203;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #800203; }
+    .btn-secondary {
+      background: #334155;
+    }
+    .btn-secondary:hover { background: #475569; }
+  </style>
+</head>
+<body>
+
+  <div class="slide-container">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" id="slide-1">
+      <span class="tag">CGC University, Mohali</span>
+      <h1>Autonomous AI Admissions<br><span style="color: #9e0203;">Telephony Agent</span></h1>
+      <p class="subtitle">Sub-Second Outbound Voice Calling • Multilingual Intelligence • Real-time CRM Sync</p>
+      <div style="display: flex; gap: 16px; margin-top: 20px;">
+        <span style="background: rgba(14,165,233,0.15); color: #38bdf8; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;">Sarvam AI Indian Neural Voice (Ritu)</span>
+        <span style="background: rgba(16,185,129,0.15); color: #34d399; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;">OmniDimension Telephony Engine</span>
+        <span style="background: rgba(244,63,94,0.15); color: #fb7185; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;">Supabase Cloud Database</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="slide-2">
+      <span class="tag">The Challenge</span>
+      <h2>The Admission Counselling Bottleneck</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-num">1</div>
+          <h3>15-Minute Dropoff Rule</h3>
+          <p>71% of prospective students lose interest or apply to competing institutions if not contacted within 15 minutes of submitting an enquiry.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">2</div>
+          <h3>Human Bandwidth Limits</h3>
+          <p>Admissions teams are overwhelmed during peak periods. Evenings and weekends get high inquiry traffic with zero immediate human response.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">3</div>
+          <h3>Heavy Operational Overhead</h3>
+          <p>Maintaining outbound tele-calling centers requires heavy staffing, training, and manual CRM entry, resulting in high costs and human fatigue.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="slide-3">
+      <span class="tag">The Innovation</span>
+      <h2>Our Solution: Zero-Latency Telephony AI</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-num card-check">✓</div>
+          <h3>Sub-Second Outbound Call</h3>
+          <p>The instant an applicant clicks 'Submit', our system fires a REST dispatch to ring their physical mobile phone (SIM) in less than 2 seconds.</p>
+        </div>
+        <div class="card">
+          <div class="card-num card-check">✓</div>
+          <h3>Hyper-Personalized Context</h3>
+          <p>AI Counselor Ritu greets the caller by their name, references their applied course (e.g. B.Tech CSE), and answers fees & scholarships.</p>
+        </div>
+        <div class="card">
+          <div class="card-num card-check">✓</div>
+          <h3>Multilingual & Calm Cadence</h3>
+          <p>Offers instant language switching between English, Hindi, and Punjabi with ultra-realistic, natural Indian conversational speech.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide" id="slide-4">
+      <span class="tag">Architecture</span>
+      <h2>Full-Stack System Pipeline</h2>
+      <div class="grid-4">
+        <div class="card">
+          <h3 style="color: #38bdf8;">1. Official Portal</h3>
+          <p>React 19 + Tailwind v4<br>• Authentic CGC replica<br>• Admission Form Modal<br>• Real-time validation</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #38bdf8;">2. Cloud CRM</h3>
+          <p>Supabase PostgreSQL<br>• 50ms record latency<br>• RLS configured<br>• Audit trail logging</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #38bdf8;">3. Telephony API</h3>
+          <p>OmniDimension Gateway<br>• Outbound cellular dialing<br>• Bearer auth security<br>• Dynamic context payload</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #38bdf8;">4. Speech Engine</h3>
+          <p>Sarvam AI + Soniox<br>• Ritu neural voice<br>• Hindi/English switching<br>• GPT-4.1 Mini reasoning</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide" id="slide-5">
+      <span class="tag">Knowledge Domain</span>
+      <h2>Verified CGC University Facts</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Placements & Landmark Packages</h3>
+          <p>• Landmark ₹1 Crore Per Annum (International)<br>• Top Domestic: ₹50 LPA & ₹45.5 LPA<br>• 14,000+ offers across 1,700+ leading companies (Google, Microsoft, Amazon, TCS)</p>
+        </div>
+        <div class="card">
+          <h3>Programs & Tuition Fees</h3>
+          <p>• B.Tech CSE (AI & ML, Cyber Security): ₹65k–₹75k / sem<br>• BCA / BBA: ₹45k–₹52k / sem<br>• MBA: ₹70k–₹80k / sem<br>• Pharmacy (PCI) & Law (BCI) approved</p>
+        </div>
+        <div class="card">
+          <h3>CGC JOSH Scholarships (₹12 Cr+ Corpus)</h3>
+          <p>• 93%+ score: 100% Tuition Fee Waiver<br>• 85%–92.9%: 50% Tuition Fee Waiver<br>• 75%–84.9%: 25% Tuition Fee Waiver<br>• 65%–74.9%: 15% Tuition Fee Waiver</p>
+        </div>
+        <div class="card">
+          <h3>Hostels & Campus Amenities</h3>
+          <p>• AC / Non-AC: ₹85,000 to ₹1,20,000 per year<br>• 4 hygienic meals daily included<br>• 24/7 Security, Biometric attendance, Wi-Fi, Gym<br>• 100+ AC buses connecting entire Tri-City area</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide" id="slide-6">
+      <span class="tag">Business Impact</span>
+      <h2>Transforming University Admissions</h2>
+      <div class="grid-4">
+        <div class="card">
+          <div class="stat-number">&lt; 2s</div>
+          <h3>Response Latency</h3>
+          <p>From 24-48 hours manual turnaround down to sub-second automated dialing.</p>
+        </div>
+        <div class="card">
+          <div class="stat-number">3.2x</div>
+          <h3>Conversion Rate</h3>
+          <p>Calls the applicant when their interest is at peak while browsing the portal.</p>
+        </div>
+        <div class="card">
+          <div class="stat-number">24/7</div>
+          <h3>Continuous Coverage</h3>
+          <p>Zero missed leads during late evenings, weekends, or admission holidays.</p>
+        </div>
+        <div class="card">
+          <div class="stat-number">80%</div>
+          <h3>Cost Efficiency</h3>
+          <p>Eliminates the cost of large outbound tele-calling shifts and repeated training.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide" id="slide-7">
+      <span class="tag">Demonstration</span>
+      <h2>Live Demo Walkthrough for Judges</h2>
+      <div class="pipeline-step">
+        <div>
+          <h4>Step 1: Judge enters details on CGC portal</h4>
+          <p>Name, mobile number (+91), and course selection submitted in official admission modal.</p>
+        </div>
+        <span style="color: #10b981; font-weight: 700;">Live Web Form</span>
+      </div>
+      <div class="pipeline-step">
+        <div>
+          <h4>Step 2: Instant Cloud Sync (Supabase)</h4>
+          <p>Lead recorded in 50ms with timestamp, consent, and course preference.</p>
+        </div>
+        <span style="color: #10b981; font-weight: 700;">Database 201 Created</span>
+      </div>
+      <div class="pipeline-step">
+        <div>
+          <h4>Step 3: Real Mobile Phone Rings (&lt; 2 Seconds)</h4>
+          <p>OmniDimension triggers GSM network outbound call directly to the judge's phone.</p>
+        </div>
+        <span style="color: #10b981; font-weight: 700;">Cellular GSM Call</span>
+      </div>
+      <div class="pipeline-step">
+        <div>
+          <h4>Step 4: AI Voice Counselor Speaks</h4>
+          <p>Ritu greets the judge by name, asks Hindi/English preference, and answers fee/scholarship queries.</p>
+        </div>
+        <span style="color: #10b981; font-weight: 700;">Sarvam Neural Speech</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="slide" id="slide-8">
+      <span class="tag">Conclusion</span>
+      <h1>Ready for the Future of Higher-Ed Admissions</h1>
+      <p class="subtitle">Autonomous, personalized, and scalable voice AI for CGC University, Mohali.</p>
+      <p style="font-size: 24px; color: #38bdf8; font-weight: 700; margin-top: 40px;">Thank you, Judges & Mentors!</p>
+      <p style="color: #94a3b8; font-size: 16px; margin-top: 10px;">We are now open for Questions & Live Interactive Demonstration.</p>
+    </div>
+
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div>
+      <span id="slide-num" style="font-weight: 700; color: #f8fafc;">Slide 1 / 8</span>
+      <span style="margin-left: 16px; color: #64748b;">(Use Left / Right arrow keys or buttons)</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button class="btn btn-secondary" onclick="prevSlide()">← Previous</button>
+      <button class="btn" onclick="nextSlide()">Next →</button>
+      <button class="btn btn-secondary" onclick="window.print()">Print / PDF</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 8;
+
+    function showSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      const active = document.getElementById(`slide-${n}`);
+      if (active) active.classList.add('active');
+      document.getElementById('slide-num').innerText = `Slide ${n} / ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
